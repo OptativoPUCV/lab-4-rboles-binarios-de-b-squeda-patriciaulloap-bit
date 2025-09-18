@@ -30,3 +30,14 @@ Thu, Sep 18, 2025  5:10:11 PM:
  tests:  8|5
 total_score: 15/70
 6446dfe
+Thu, Sep 18, 2025  5:30:39 PM: 
+ treemap.c | 46 ++++++++++++++++++++++++++--------------------
+ 1 file changed, 26 insertions(+), 20 deletions(-)
+Compilation failed
+In file included from test.c:4:0:
+test.c: In function 'removeNode':
+treemap.c:123:18: error: 'child' may be used uninitialized in this function [-Werror=maybe-uninitialized]
+         if(child -> left != NULL){
+            ~~~~~~^~~~~~~
+cc1.exe: all warnings being treated as errors
+9414c87
