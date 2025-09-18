@@ -104,9 +104,9 @@ void removeNode(TreeMap * tree, TreeNode* node) {
     }
     if(node -> left != NULL && node -> right != NULL){
         TreeNode * sucesor = minimum(node -> right);
-        Pair *original = node -> pair;
-        node -> pair = sucesor -> pair;
-        sucesor -> pair = original;
+        free(sucesor -> pair);
+        sucesor -> pair = node -> pair;
+        node -> pair = NULL;
 
         removeNode(tree, sucesor);
         return;
@@ -142,7 +142,6 @@ void removeNode(TreeMap * tree, TreeNode* node) {
         free(node -> pair);
     }
     free(node);
-
 }
 
 void eraseTreeMap(TreeMap * tree, void* key){
