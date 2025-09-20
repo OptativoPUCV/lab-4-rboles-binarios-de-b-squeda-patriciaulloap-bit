@@ -40,7 +40,7 @@ TreeNode * createTreeNode(void* key, void * value) {
 //Funcion que crea un nuevo TreeMap
 /*Como: Reserva memoria para el nuevo TreeMap, inicializa las raíces y el puntero current
 a NULL y guarda la funcion de comparacion (lower_than) para poder comparar las claves al
-momento de decidir su orden el árbol
+momento de decidir su orden en el árbol
 */
 TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
     TreeMap * map = (TreeMap*) malloc(sizeof(TreeMap));
@@ -59,7 +59,7 @@ TreeMap * createTreeMap(int (*lower_than) (void* key1, void* key2)) {
 /*Como: Si el árbol esta vacio, se crea un nuevo nodo con el par a ingresar y,
 este se transforma en la raíz del árbol. En cambio, si no esta vacio, busca la posición 
 correcta comparando claves con lower_than, e inserta el nodo como hijo izquierdo o derecho
-según corresponda. Pero, si la clave ya existe en árbol, no la inserta de nuevo
+según corresponda. Pero, si la clave ya existe en el árbol, no la inserta de nuevo
 */
 void insertTreeMap(TreeMap * tree, void* key, void * value) {
     if(tree == NULL){
@@ -123,7 +123,7 @@ TreeNode * minimum(TreeNode * x){
 //Funcion que elimina un nodo del árbol, en tres casos distintos
 /*Como: Si un nodo(padre) no tiene hijos, simplemente lo desconecta. Si el padre tiene un
 hijo, se sustituye el nodo por su hijo y si este tiene dos hijos, se busca el sucesor 
-inmediata(minimo del subárbol derecho) y se copian sus datos en el nodo a eliminar(padre), 
+inmediato(minimo del subárbol derecho) y se copian sus datos en el nodo a eliminar(padre), 
 y luego se elimina el sucesor.
 */
 void removeNode(TreeMap * tree, TreeNode* node) {
@@ -190,9 +190,9 @@ void eraseTreeMap(TreeMap * tree, void* key){
 
 
 //Función que busca una clave en el árbol
-/*Como: Busca un nodo que tenga exactamente la clave (key) empezando desde la raíz.
+/*Como: Busca un nodo que tenga exactamente la clave (key), empezando desde la raíz.
 Si la encuentra (son iguales), devuelve el par (key, value). Si la clave buscada es menor
-a la clave en la que esta baja a la izquierda pero si es mayor baja a la derecha. 
+a la clave en la que está, baja a la izquierda pero, si es mayor baja a la derecha. 
 Por ultimo, si llega a NULL, significa que no existe esa clave en el árbol y devuelve NULL.
 */
 Pair * searchTreeMap(TreeMap * tree, void* key) {
@@ -219,7 +219,7 @@ Pair * searchTreeMap(TreeMap * tree, void* key) {
 
 //Función busca el menor elemento que sea mayor o igual a la clave dada
 /*Como: Busca el menor nodo cuya clave sea mayor o igual a key. Si encuentra la clave
-exacta, la devuelve pero si no, cada vez que baje por la izquierda, porque key < nodo -> key,
+exacta la devuelve, pero si no, cada vez que baje por la izquierda, porque key < nodo -> key,
 guarda ese nodo como posible candidato en ls_node.
 Al final, el mejor candidato(ls_node) será el más pequeño que sigue siendo mayor o igual a key
 */
